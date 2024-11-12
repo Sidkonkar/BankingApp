@@ -21,8 +21,8 @@ pipeline {
         stage('Docker Build') {
             steps {
                 echo 'Perform Docker Build'
-				sh "docker build -t loksaieta/bankapp-eta-app:${BUILD_NUMBER} ."
-				sh "docker tag loksaieta/bankapp-eta-app:${BUILD_NUMBER} loksaieta/bankapp-eta-app:latest"
+				sh "docker build -t Sidkonkar/bankapp-eta-app:${BUILD_NUMBER} ."
+				sh "docker tag Sidkonkar/bankapp-eta-app:${BUILD_NUMBER} Sidkonkar/bankapp-eta-app:latest"
 				sh 'docker image list'
             }
         }
@@ -36,7 +36,7 @@ pipeline {
         stage('Publish the Image to Dockerhub') {
             steps {
                 echo 'Publish to DockerHub'
-				sh "docker push loksaieta/bankapp-eta-app:latest"                
+				sh "docker push Sidkonkar/bankapp-eta-app:latest"                
             }
         }
         stage('Deploy to Kubernetes Cluster') {
